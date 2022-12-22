@@ -1,11 +1,11 @@
 # Personal Portfolio ⚡️ 
 > A clean, beautiful, responsive portfolio template for Software Developers!
-> https://varadbhogayata.github.io
+> https://kshubham767.github.io/myPortfolio/
 
 ### Website Preview
 <p align="center"> 
   <kbd>
-    <a href="https://kshubham767.github.io/myPortfolio/" target="_blank"><img src="examples/preview.gif">
+    <a href="https://kshubham767.github.io/myPortfolio/" target="_blank"><img src="preview.png">
   </a>
   </kbd>
 </p>

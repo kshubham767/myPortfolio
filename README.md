@@ -15,7 +15,7 @@
 ✔️ Projects\
 ✔️ Skills\
 ✔️ Education\
-✔️ Contact\
+✔️ Contact
 
 To view a live example, **[click here](https://kshubham767.github.io/myPortfolio/)**
 

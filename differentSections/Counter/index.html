@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            background-color: lightcyan;
+        }
+        .box{
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        h1{
+            background-color: aquamarine;
+            box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 8px;
+            width: 50%;
+            margin-bottom: 2%;
+            text-align: center;
+            font-size: 2rem;
+        }
+
+        .textfield{
+            background-color: aquamarine;
+            box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 8px;
+            border: none;
+            outline:none;
+            width: 50%;
+            height: 50%;
+            padding: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .para{
+            background-color: aquamarine;
+            box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 8px;
+            width: 50%;
+            text-align: center;
+            margin-top: 2%;
+            font-size: 2rem;
+        }
+        span{
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+    <h1>Sentence, Words and Character Counter</h1>
+    <textarea name="" id="textfield" class="textfield" cols="30" rows="10"></textarea>
+    <p class="para">
+        <span id="sentence">0</span> Sentence <span id="word">0</span> words <span id="char">0</span> characters!
+    </p>
+    </div>
+
+    <script>
+        let textfield=document.getElementById("textfield");
+        let sentence=document.getElementById("sentence");
+        let word=document.getElementById("word");
+        let char=document.getElementById("char");
+
+        textfield.addEventListener("input",()=>{
+            let value=textfield.value;
+            value=value.trim();
+            let arrayofwords=value.split(/[,\s\n]+/);
+            let arrayofsentence=value.split(/[!?.]+/)
+            console.log(arrayofsentence);
+            if(value==""){
+            char.innerHTML=0;
+            word.innerHTML=0;
+            sentence.innerHTML=0;
+            }
+            else{
+                char.innerHTML=value.length;
+                word.innerHTML=arrayofwords.length;
+                sentence.innerHTML=arrayofsentence.length-1;
+            }
+        });
+    </script>
+</body>
+</html>

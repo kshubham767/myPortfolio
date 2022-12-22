@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stopwatch</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: aliceblue;
+        }
+        #stopwatch {
+            width: 400px;
+            height: 40vh;
+            margin: 100px auto;
+            padding: 60px 50px 10px;
+            text-align: center;
+            font-size: 40px;
+            border-radius: 40px;
+            background: lightcyan;
+            box-shadow: 6px 6px 8px #9d9d9d;
+        }
+        #stopwatch span {
+            color: #0776de;
+            padding: 10px;
+            width: 55px;
+            margin: 3px;
+            display: inline-flex;
+            justify-content: center;
+            background: lightblue;
+            box-shadow: inset 6px -6px 8px #9d9d9d, -6px 6px 8px #ffffff;
+            border-radius: 50%;
+        }
+        #stopwatch button {
+            font-size: 20px;
+            border: none;
+            background-color: #2e80b3;
+            color: white;
+            width: 90px;
+            height: 45px;
+            justify-content: space-between;
+            border-radius: 40px;
+            box-shadow: 6px -6px 8px #9d9d9d, -6px 6px 8px #ffffff;
+        }
+        #stopwatch #start {
+            background-color: rgb(35, 241, 35);
+        }
+        #stopwatch #stop {
+            background-color: red;
+        }
+        #stopwatch button:hover {
+            cursor: pointer;
+            box-shadow: 6px -4px 5px #9d9d9d, -6px 4px 5px #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <div id="stopwatch">
+        <div class="Time">
+            <span id="minute">00</span>
+            <span id="seconds">00</span>
+            <span id="milliseconds">00</span>
+        </div>
+        <br>
+        <button id="start">Start</button>
+        <button id="stop">Stop</button>
+        <button id="reset">Reset</button>
+    </div>
+    <script>
+        //JavaScript
+        window.onload = function () {
+            var minutes = 00;
+            var seconds = 00;
+            var milliSeconds = 00;
+            var appendMilli = document.getElementById("milliseconds");
+            var appendSeconds = document.getElementById("seconds");
+            var appendMinutes = document.getElementById("minute");
+            var buttonStart = document.getElementById('start');
+            var buttonStop = document.getElementById('stop');
+            var buttonReset = document.getElementById('reset');
+            var Interval;
+            buttonStart.onclick = function () {
+
+                clearInterval(Interval);
+                Interval = setInterval(startTimer, 10);
+            }
+            buttonStop.onclick = function () {
+                clearInterval(Interval);
+            }
+            buttonReset.onclick = function () {
+                clearInterval(Interval);
+                milliSeconds = "00";
+                seconds = "00";
+                minutes = "00";
+                appendMilli.innerHTML = milliSeconds;
+                appendSeconds.innerHTML = seconds;
+                appendMinutes.innerHTML = minutes;
+            }
+            function startTimer() {
+                milliSeconds++;
+                if (milliSeconds <= 9) {
+                    appendMilli.innerHTML = "0" + milliSeconds;
+                }
+                if (milliSeconds > 9) {
+                    appendMilli.innerHTML = milliSeconds;
+                }
+                if (milliSeconds > 99) {
+                    console.log("seconds");
+                    seconds++;
+                    appendSeconds.innerHTML = "0" + seconds;
+                    milliSeconds = 0;
+                    appendMilli.innerHTML = "0" + 0;
+                }
+                if (seconds > 9) {
+                    appendSeconds.innerHTML = seconds;
+                }
+                if(seconds>59)
+                {
+                    minutes++;
+                    appendMinutes.innerHTML="0"+minutes;
+                    seconds=0;
+                    appendSeconds.innerHTML = "0" +0;
+                    milliSeconds="0"+0;
+                    appendMilli.innerHTML = "0" + 0;
+                }
+                if(minutes>9)
+                {
+                    appendMinutes.innerHTML = minutes;
+                }
+            }
+        }
+    </script>
+</body>
+</html>

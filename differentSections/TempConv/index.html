@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tempearture Converter</title>
+    <style>
+        body {
+            box-sizing: border-box;
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+        }
+        .box1 {
+            border: 1px solid blue;
+            color: red;
+            grid-area: item1;
+            margin: 2% 5%;
+            box-shadow: 0px 5px 10px;
+        }
+        .box2 {
+            grid-area: item2;
+            display: grid;
+        }
+        .input1 {
+            background-color: transparent;
+            border: 1px solid blue;
+            color: red;
+            font-size:18px;
+            box-shadow: red 0px 5px 10px;
+            border-radius: 5px;
+            padding: 10% 0%;
+            margin:5%;
+        }
+        .box3 {
+            grid-area: item3;
+            font-size: 50px;
+            font-weight: bold;
+            margin-bottom: 80%;
+            
+        }
+        .box4 {
+            grid-area: item4;
+            display: grid;
+        }
+        .input2 {
+            background-color: transparent;
+            border: 1px solid blue;
+            color: red;
+            font-size:18px;
+            box-shadow: red 0px 5px 10px;
+            border-radius: 5px;
+            padding: 10% 0%;
+            margin: 5%;
+        }
+        .option{
+            background-color: transparent;
+            border: 1px solid blue;
+            color: red;
+            font-size: 16px;
+            box-shadow: red 0px 3px 8px;
+            border-radius: 5px;
+            margin: 5%;
+        }
+        .container {
+            border: 1px solid blue;
+            display: grid;
+            text-align: center;
+            align-items: center;
+            justify-content: space-around;
+            grid-template-areas: 'item1 item1 item1''item2 item3 item4';
+            width: 600px;
+            height: 400px;
+            background-image: url("image.jpg");
+            backdrop-filter: opacity(30%);
+            background-size: cover;
+            box-shadow: 0px 5px 10px blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box1">
+            <h2>Tempearture Converter</h2>
+        </div>
+        <div class="box2" id="box2">
+            <input type="text" class="input1" id="input1">
+            <select name="option" id="unit1" class="option">
+                <option value="cel" selected>Celcius</option>
+                <option value="fah">Fahernheit</option>
+                <option value="kel">Kelvin</option>
+            </select>
+        </div>
+        <div class="box3">=
+        </div>
+        <div class="box4" id="box4">
+            <input type="text" class="input2" id="input2">
+            <select name="option" id="unit2" class="option">
+                <option value="cel">Celcius</option>
+                <option value="fah" selected>Fahernheit</option>
+                <option value="kel">Kelvin</option>
+            </select>
+        </div>
+    </div>
+    <script>
+        var input1=document.getElementById("input1");
+        var input2=document.getElementById("input2");
+        var unit1=document.getElementById("unit1");
+        var unit2=document.getElementById("unit2"); 
+        input1.addEventListener('input',()=>{
+            //fetching the value of different options
+            var degree1=unit1.options[unit1.selectedIndex].value;
+            var degree2=unit2.options[unit2.selectedIndex].value;
+            var inputNum=0;
+            inputNum=input1.value;
+            if(degree1=='cel')
+            {
+                if(degree2=='fah'){
+                let f=(inputNum)*(9/5)+32;
+                input2.value=f;
+                }
+                else if(degree2=='kel')
+                {
+                    let k=273.15+inputNum;
+                    input2.value = k;
+                }
+                else
+                {
+                    input2.value=inputNum;
+                }
+            }
+            else if(degree1=='fah')
+            {
+                if(degree2=='cel'){
+                let c=(inputNum-32)*(5/9);
+                input2.value=c;
+                }
+                else if(degree2=='kel')
+                {
+                    let k=(inputNum-32)*(5/9)+273.15;
+                    input2.value=k;
+                }
+                else
+                {
+                    input2.value=inputNum;
+                }
+            }
+            else if(degree1=='kel')
+            {
+                if(degree2=='cel'){
+                let c=inputNum-273.15;
+                input2.value=c;
+                }
+                else if(degree2=='fah')
+                {
+                    let f=(inputNum-273.15)*(9/5)+32;
+                    input2.value=f;
+                }
+                else
+                {
+                    input2.value=inputNum;
+                }   
+            }
+        });
+    </script>
+</body>
+</html>

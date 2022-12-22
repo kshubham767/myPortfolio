@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <title>Registration Form</title>
+    <style>
+        .fa-twitter{color: #00acee;}
+        .fa-facebook{color: #4267B2;}
+        .fa-google{ color: #DB4437;}
+        .fa-linkedin{color: #0072b1;}
+        .fa-youtube{color:#FF0000;}
+        
+        img {
+            max-width: 100%;
+        }
+        
+        h1 {
+            background: -webkit-linear-gradient(#00d4ff, #ae00ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        #parent{
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            padding: 10px;
+            margin-top: 8%;
+            margin-bottom: 8%;
+            margin-left: 25%;
+            margin-right: 25%;
+            width: clamp(800px, 50%, 1000px);
+            background-color: lightgray;
+            background-color: rgba(211,211,211,0.5);
+            border-radius: 100px 25px;
+        }
+        
+        .fa-brands{
+            margin: 5px;
+        }
+
+        .child{
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px #888888;
+        }
+
+        h3{
+            text-align: center;
+            color: rgba(108, 107, 107, 0.5);
+        }
+
+        #child1{
+            width: 40%;
+        }
+        
+        #child1 h1{
+            text-align: left;
+        }
+
+        #child2{
+            align-self: center;
+            width: 20%;
+        }
+
+        #child3{
+            width: 40%;
+        }
+        
+        #child3 input{
+            margin: 5px;
+        }
+        
+        #child3 hr{
+            width: 80%;
+        }
+
+        .btn{
+            width: 80%;
+            padding: 10px;
+            color: white;
+            background-color: #0072b1;
+            opacity: 0.8;
+            border: none;
+            border-radius: 5px;
+        }
+        .btn:hover{
+            background-color: #0072b1;
+            opacity: 0.5;
+            cursor: pointer;
+            display: inline-block;
+
+        }
+        .child i:hover{
+            cursor: pointer;
+        }
+
+        .fa-solid{
+            color: #0072b1;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="parent">
+    <div class="child" id="child1">
+    <h1>Learning</h1>
+    <h1>HTML and CSS!!!</h1>
+    <img src="image/download.jpg" alt="error"><br>
+    <h3>Sign Up</h3>
+    <i class="fa-brands fa-twitter"></i>
+    <i class="fa-brands fa-facebook"></i>
+    <i class="fa-brands fa-google"></i>
+    <i class="fa-brands fa-linkedin"></i>
+    <i class="fa-brands fa-youtube"></i>
+    </div>
+    <div class="child" id="child2"><h1>OR</h1></div>
+    <div class="child" id="child3">    
+    <h1>Registration</h1>
+        <form action="/action-page.php">
+            <hr>
+            <input type="radio" name="choice" id="personal">
+            <label for="personal">Personal</label>
+            <input type="radio" name="choice" id="company">
+            <label for="company">Company</label>
+            <hr>
+            <label for="email"><i class="fa-solid fa-envelope"></i></label>
+            <input type="email" name="Email" id="email" placeholder="Email"><br>
+            <label for="name"><i class="fa-solid fa-user"></i></label>
+            <input type="text" name="Name" id="name" placeholder="Name"><br>
+            <label for="password"><i class="fa-solid fa-unlock-keyhole"></i></label>
+            <input type="password" name="Password" id="password" placeholder="Password">
+            <hr>
+            <input type="radio" name="gender" id="male">
+            <label for="male">Male</label>
+            <input type="radio" name="gender" id="female">
+            <label for="female">Female</label>
+            <hr>
+            <p>By clicking Register, you agree to our <a href="http://www.google.com">Privacy Terms & Conditions</a></p>
+            <Button class="btn">Submit</Button>
+        </form>
+    </div>
+    </div>
+</body>
+</html>

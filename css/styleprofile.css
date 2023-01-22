@@ -145,9 +145,8 @@ header.sticky ul li a {
 .w50 {
   min-width: 50%;
 }
-.w50 iframe {
-  max-width: 100%;
-  
+.w50 img {
+  max-width: 100%; 
 }
 .skills {
   background: #ff4c68;
@@ -405,9 +404,6 @@ header.sticky ul li a {
   .w50 {
     min-width: 50%;
     margin-bottom: 20px;
-  }
-  iframe{
-    height: 25rem;
   }
   .skills .content {
     display: flex;
